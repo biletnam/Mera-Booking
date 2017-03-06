@@ -1,0 +1,203 @@
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px 10px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2.5s;
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+body{padding-top:30px;}
+
+.btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+.btn-outlined.btn-primary {
+    background: none;
+    border: 3px solid #428bca;
+    color: #428bca;
+}
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+    color: #FFF;
+    background: #428bca;
+    border-color: #428bca:
+}
+
+.btn-outlined.btn-warning {
+    background: none;
+    border: 3px solid #f0ad4e;
+    color: #f0ad4e;
+}
+.btn-outlined.btn-warning:hover,
+.btn-outlined.btn-warning:active {
+    color: #FFF;
+    background: #ed9c28;
+}
+
+</style>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div class="slideshow-container">
+<div class="mySlides fade">
+<img src="../img/resrc/Bogan.jpg" alt="First slide" height="340" width="1050">
+
+</div>
+
+<div class="mySlides fade">
+<img src="../img/resrc/kali.jpg" alt="Second slide" height="340" width="1050">
+</div>
+<div class="mySlides fade">
+  <img src="../img/resrc/banglore days.jpg" alt="Third slide" height="340" width="1050">
+</div>
+<div class="mySlides fade">
+  <img src="../img/resrc/Raees.jpg" alt="Forth slide" height="340" width="1050">
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+
+<div class="container">
+  <button class="btn btn-success btn-block">MOVIES DETAIL'S</button>
+</div>
+<div class="row">
+
+<div class="col-sm-5">
+
+       <input type="text" class="form-control" placeholder="Search" ng-model="searching"/>
+<div class="col-sm-2" style="margin-left: 97%;margin-top: -34px;">
+
+ <!-- <button="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" ng-click="bookTicket(m)" style="color:black"></span></button> -->
+
+     <div class="row">
+     <div class="col-sm-5">
+     <ul class="list-group">
+     <li ng-show="searching" ng-repeat="m in moviList| filter:searching" ng-click="bookTicket(m)" class="list-group-item" style="float:center;"> {{m.movieTitle}}</li>
+     </ul>
+     </div>
+     </div>
+</div>
+</div>
+</div>
+
+<div style="padding:15px; text-align:center"><h2>Categories of movies</h2>
+<select ng-model="movieGenre">
+  <option value="">All</option>
+<option ng-repeat="m in moviList |unique:'movieGenre'">{{m.movieGenre}}</option>
+  </select>
+</div>
+  <div>
+<div ng-repeat="m in moviList|filter:movieGenre" class="col-xs-6 col-sm-3 col-md-4">
+    <img src="{{m.moviePoster}}" style="width:200px;height:200px; margin-left: 81px;">
+      <table class="table">
+          <tbody style="display:table-caption;color:red;margin-left:57px;padding:10px">
+    <tr><td><b>MOVIE NAME:</b></td><td>{{m.movieTitle}}</td></tr>
+    <tr><td><b>YEAR:<b></td><td>{{m.movieYear}}</td><tr>
+  <tr><td><b>LANGUAGE:</b></td><td>{{m.movieLanguage}}</td></tr>
+  <tr><td><span class="glyphicon glyphicon-heart"></span>
+      <td>{{m.avgrate}}</td></tr>
+
+
+      <!-- <div class="container">
+      	<div class="row">
+              <div class="col-lg-3">
+                  <p><a href="#" >Demo Primary Button</a></p> -->
+  <tr><td><button ng-click="bookTicket(m)" class="btn btn-outlined btn-primary">BOOK</button></td>
+<td><button ng-click="addreview(m)" class="btn btn-outlined btn-warning">Rating</button></td></tr>
+  </tbody>
+</table>
+</div></div>

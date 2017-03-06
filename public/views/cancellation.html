@@ -1,0 +1,78 @@
+
+<div class="container">
+  <button class="btn btn-success btn-block">MOVIE CANCELLATION DETAIL'S</button>
+</div>
+<div class="container">
+
+<div class="table-responsive">
+  <table class="table">
+<tr>
+  <td>BOOKING ID:</td>
+  <td><input  class="form-control" type="text" ng-model="idNo"></td>
+
+  </tr>
+  <tr>
+    <td>MOVIE NAME:</td>
+    <td><input class="form-control" type="text" ng-model="movie"></td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <button ng-click="getcancel()" class="btn btn-outlined btn-danger">GET DETAIL</button>
+    </td>
+
+  </tr>
+
+ </table>
+
+<div ng-show="showd">
+
+     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>TITLE</th>
+        <th>CITY</th>
+        <th>THEATER</th>
+        <th>DATE</th>
+        <th>SHOW TIME</th>
+        <th>SEAT NO</th>
+      <th>AMOUNT</th></tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>{{cancellation.ConTitle}}</td>
+       <td>{{cancellation.ConCityName}}</td>
+       <td>{{cancellation.ConTheatreName}}</td>
+       <td>{{cancellation.ConReservation}}</td>
+       <td>{{cancellation.ConShowtime}}</td>
+       <td>{{cancellation.Conseatnumbers}}</td>
+       <td>{{cancellation.ConAmount}}</td>
+       <td><button type="button" ng-click="cancelBook(cancellation)" class="btn btn-outlined btn-danger">CANCEL</button></td>
+
+     </tr>
+   </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+<style>
+
+.btn-outlined.btn-danger {
+    background: none;
+    border: 3px solid #d9534f;
+    color: #d9534f;
+}
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+    color: #FFF;
+    background: #d2322d;
+}
+
+</style>

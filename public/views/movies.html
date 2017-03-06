@@ -1,0 +1,97 @@
+<style>
+.btn-outlined.btn-info {
+    background: none;
+    border: 3px solid #5bc0de;
+    color: #5bc0de;
+}
+.btn-outlined.btn-info:hover,
+.btn-outlined.btn-info:active {
+    color: #FFF;
+    background: #39b3d7;
+}
+</style>
+<div class="container">
+<button class="btn btn-success btn-block">MOVIE DETAIL'S</button>
+      <table class="table">
+        <div class="table-responsive">
+        <tr>
+  <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td></tr>
+</tr>
+      <tr>
+         <td><b>Movie Title:</b></td>
+       <td><p>{{m.movieTitle}}</p></td>
+     </tr>
+
+
+<tr>
+  <td><b>Select City:</b></td>
+  <td><select ng-model="book.CityName" required>
+  <option ng-repeat="mpps in mapplist|filter:m.movieTitle">{{mpps.Theatrelocation}}</option>
+  </td>
+
+  </select></td>
+</tr>
+<tr>
+  <td><b>Select TheatreName:</b></td>
+  <td><select ng-model="book.TheatreName" required>
+  <option ng-repeat="mpps in mapplist |filter:book.CityName | filter:m.movieTitle">{{mpps.Theatrename}}</option>
+  </select></td>
+</tr>
+
+<tr>
+  <td><b>Select Date:</td>
+<td><select ng-model="book.Reservation"  required>
+  <option ng-repeat=" mpps in mapplist| filter:m.movieTitle|filter:book.CityName|filter: book.TheatreName">{{mpps.Fromdate}}</option>
+    </select></td>
+  <!-- <td> <input  type="date" id="datebook" required/></td> -->
+
+
+ </tr>
+ <tr>
+   <td><b>Select Show Time:</b></td>
+   <td><select ng-model="book.Showtime" ng-change="get()" required>
+   <option ng-repeat="mpps in mapplist |filter:book.CityName |filter:book.Reservation">{{mpps.Showtiming}}</option>
+   </select></td>
+ </tr>
+<tr>
+  <td><b>Seating Arrangement:</b></td>
+<td><p id="seat no"></p></td>
+</tr>
+<tr><td><b>Amount:</b></td>
+<td><p id="amt"></p> </td>
+</tr>
+</div>
+</table>
+
+<div class="table-responsive"  ng-show="seatarr">
+    <table class="table">
+  <table class="seatLayout" style="margin-top: 2%;
+    margin-left: 10%;">
+    <div style="background-color: black;width: 567px;">
+    <h4 style="color: aliceblue;margin-left: 190px;">SEAT BOOKING</h4>
+  </div>
+    <tbody>
+      <tr>
+            <td></td>
+            <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
+        </tr>
+        <tr class="tablestyle" ng-repeat="row in rows">
+            <td ng-bind="row"></td>
+            <td ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+            </td>
+            <img src="../img/resrc/seat.gif" style="width:30px;height:30px;text-align:center">AVAILABLE
+            <img src="../img/resrc/sts.gif" style="width:30px;height:30px;text-align:center">BOOKED
+        </tr>
+    </tbody>
+</table>
+<div style="background-color: black;width: 547px;">
+  <h4 style="color: aliceblue;margin-left: 190px;">All Eyes Faced Here</h4>
+</div>
+</div>
+<div>
+<button ng-click="addbook()" class="btn btn-outlined btn-info ">Submit</button>
+</div>
+</div>

@@ -1,0 +1,99 @@
+<!-- start -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Movie Booking</title>
+  <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <style>
+       .link{
+         color: white !important;
+       }
+
+       </style>
+</head>
+
+<body  ng-app="movieApp">
+  <div style="overflow:hidden;">
+
+
+     <header>
+       <div class="container-fluide">
+        <div class="row" >
+          <div class="col-sm-4"><img src="../img/resrc/MERA.PNG" style="height: 80px;width: 111px;    margin-left: 76px;"></div>
+          <div class="col-sm-8"><h1  style="color:black;font-family:sans-serif;">MERA MOVIE BOOKING</h1></div>
+        </div>
+        <div>
+
+
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <!-- <img src="../img/resrc/MERA.PNG" style="width:50px;height:50px;"> -->
+    <a class="navbar-brand" href="#"></a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#/home"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+    <li class="active"><a href="#/trailer"><span class="glyphicon glyphicon-film"></span>TRAILERS</a></li>
+        <li class="active"><a href="#/cancellation"><span class="glyphicon glyphicon-trash"></span>CANCELLATION</a></li>
+
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="active"><a href="#/register"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+  <li class="active">  <div ng-controller="AdminController as vm" >
+                      <a ng-if="vm.IsShow" ng-show="adminpg" href="#/admin">Admin</a>
+                    </div></li>
+                    <li class="active" style="margin-top: 10%;">
+                                         <div ng-controller="LoginController as vm">
+                                         <div ng-if="!vm.IsShow">
+                                         <a ng-click="vm.IsShow=!vm.IsShow" href="#/login" class="link"><span class="glyphicon glyphicon-log-in" style="padding-right: 2px;"></span>LOG IN</button>
+                                         </div>
+                                         <div ng-if="vm.IsShow" >
+                               <a href="#/home" ng-click="vm.IsShow=!vm.IsShow" class="link"><span class="glyphicon glyphicon-log-in" style="padding-right: 2px;"></span>LOG OUT</a></div></div></li>
+    </ul>
+</nav>
+<br>
+</div>
+</div>
+</div>
+</div>
+        </header>
+
+        <div ng-view></div>
+
+
+  <footer>
+    <div class="row">
+      <div class="col-md-12">
+  <div class="container">
+<div style="    text-align: center;background-color:black; margin-top:15px;">
+        <h2 >WWW.Mera Movies.com</h2>
+        <ul class="list-inline center-block">
+          <img src="../img/resrc/fb.jpg"  class="img-circle" alt="fb"width="50" height="50">
+          <img src="../img/resrc/gmail.jpg" class="img-circle" alt="mail" width="50" height="50">
+          <img src="../img/resrc/Twitter-01.png" class="img-circle" alt="twt" width="50" height="50">
+        </ul>
+
+      </div>
+      </div></div>
+  </div>
+</footer>
+<!-- </div>
+</div>
+
+
+
+  </div>
+</footer> -->
+
+<script type="text/javascript" src="/build/bundle.js"></script>
+</body>
+</html>

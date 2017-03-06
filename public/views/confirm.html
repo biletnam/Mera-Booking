@@ -1,0 +1,109 @@
+<style>
+.btn-outlined.btn-info {
+    background: none;
+    border: 3px solid #5bc0de;
+    color: #5bc0de;
+}
+.btn-outlined.btn-info:hover,
+.btn-outlined.btn-info:active {
+    color: #FFF;
+    background: #39b3d7;
+}
+
+</style>
+
+<div class="container">
+  <h2 style="text-align:center"> CONFORMATION OF BOOKING DETAIL'S</h2>
+<div class="table-responsive">
+  <form  class="form" name="myForm5" style="margin-top: 5%;" ng-submit="ConfirmBook()">
+  <table class="table">
+
+    <tr>
+      <td><b>User Name:</b></td>
+      <td>
+        <p><input class="form-control" type="text"  ng-model="Confirm.ConUser" required=""></p>
+      <!-- <p>{{booking.eMail}}</p> -->
+    </td>
+    </tr>
+    <tr>
+      <td><b>Booking ID:</b></td>
+      <td>
+      <p>{{booking.bookingid}}</p>
+  </td>
+  </tr>
+
+  <tr>
+    <td><b>Movie title</b></td>
+    <td>
+    <p>{{booking.MovieName}}</p>
+</td>
+</tr>
+<tr>
+  <td><b>City</b></td>
+  <td>
+  <p>{{booking.CityName}}</p>
+</td>
+</tr>
+
+<tr>
+  <td><b>Theater</b></td>
+  <td>
+  <p>{{booking.TheatreName}}</p>
+</td>
+</tr>
+
+<tr>
+  <td><b>Date</b></td>
+  <td>
+  <p>{{booking.Reservation}}</p>
+</td>
+</tr>
+
+<tr>
+  <td><b>Show Time</b></td>
+  <td>
+  <p>{{booking.Showtime}}</p>
+</td>
+</tr>
+<tr>
+  <td><b>Amount</b></td>
+  <td>
+  <p>{{booking.Amount}}</p>
+</td>
+</tr>
+
+</tr>
+<tr>
+  <td><b>Seat Numbers</b></td>
+  <td>
+  <p>{{booking.seatnumbers}}</p>
+</td>
+</tr>
+<tr>
+  <td><b>E-Mail</b></td>
+  <td>
+    <p><input class="form-control" type="email" ng-model="Confirm.Conmail" required></p>
+  <!-- <p>{{booking.eMail}}</p> -->
+</td>
+</tr>
+<tr>
+  <td><b>Acc.NO</b></td>
+  <td>
+  <input class="form-control" type="text" placeholder="123 234 1234"  required>
+</td>
+</tr>
+<tr>
+  <td><b>CVV</b></td>
+  <td>
+  <input class="form-control" type="string" placeholder="###" maxlength="3" required>
+</td>
+</tr>
+<tr>
+
+  <td>
+      <td><button type="buttonSubmit"  class="btn btn-outlined btn-info">CONFIRM</button></td>
+  </td>
+</tr>
+</table>
+</form>
+</div>
